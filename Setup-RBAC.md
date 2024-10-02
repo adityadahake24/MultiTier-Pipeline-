@@ -8,7 +8,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: jenkins
-  namespace: webapps
+  namespace: multitier
 ```
 
 ### Create Role 
@@ -19,7 +19,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: app-role
-  namespace: webapps
+  namespace: multitier
 rules:
   - apiGroups:
         - ""
@@ -63,13 +63,13 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: app-rolebinding
-  namespace: webapps 
+  namespace: multitier 
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
   name: app-role 
 subjects:
-- namespace: webapps 
+- namespace:mMultitie 
   kind: ServiceAccount
   name: jenkins 
 ```
@@ -93,7 +93,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: jenkins
-  namespace: webapps
+  namespace: multitier
 roleRef:
   kind: ClusterRole
   name: jenkins-cluster-role
