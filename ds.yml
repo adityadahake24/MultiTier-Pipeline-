@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: adityadahake/Multitier:latest
+        image: adityadahake/multitier:latest
         ports:
         - containerPort: 8080
         env:
